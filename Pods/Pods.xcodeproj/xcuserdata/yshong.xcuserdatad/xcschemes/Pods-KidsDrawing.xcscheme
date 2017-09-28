@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF1EFB4EF3DC6D401A12E4E3E7256696"
+               BlueprintIdentifier = "884894B50F3210C0AE898815198AA688"
                BuildableName = "Pods_KidsDrawing.framework"
                BlueprintName = "Pods-KidsDrawing"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF1EFB4EF3DC6D401A12E4E3E7256696"
+            BlueprintIdentifier = "884894B50F3210C0AE898815198AA688"
             BuildableName = "Pods_KidsDrawing.framework"
             BlueprintName = "Pods-KidsDrawing"
             ReferencedContainer = "container:Pods.xcodeproj">
