@@ -33,6 +33,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - IBAction
+    @IBAction func onSelectedDrawing(_ sender: Any) {
+        print("onSelectedDrawing")
+    }
+    
+    @IBAction func onSelectedSticker(_ sender: Any) {
+        print("onSelectedSticker")
+    }
+    
+    @IBAction func onSelectedColoring(_ sender: Any) {
+        print("onSelectedColoring")
+    }
+    
+    @IBAction func onSelectedAlbum(_ sender: Any) {
+        print("onSelectedAlbum")
+    }
 }
 
 extension ViewController {
@@ -41,7 +57,7 @@ extension ViewController {
         Alamofire.request(SERVER_URL + SERVER_LIST_FILE).responseDecodableObject(decoder: decoder) { (response: DataResponse<ItemImage>) in
             if let item = response.result.value {
                 self.mItemImage = item
-                print(self.mItemImage)
+//                print(self.mItemImage)
                 self.requestStickerList()
             }
         }
@@ -52,8 +68,8 @@ extension ViewController {
         Alamofire.request(SERVER_URL + SERVER_STICKER_LIST_FILE).responseDecodableObject(keyPath: "itemStickerGroups", decoder: decoder) { (response: DataResponse<[ItemStickerGroupInfo]>) in
             if let item = response.result.value {
                 self.mItemStickersInfo = item
-                print("\n\n")
-                print(self.mItemStickersInfo)
+//                print("\n\n")
+//                print(self.mItemStickersInfo)
             }
         }
     }
