@@ -73,6 +73,7 @@ struct ItemImage : Decodable {
         // 2017.09.28: 아래와 같은 식으로 mapping 한다
 //        case randomDateCommit = "random_date_commit"
     }
+    
 }
 
 struct ItemImageInfo : Decodable {
