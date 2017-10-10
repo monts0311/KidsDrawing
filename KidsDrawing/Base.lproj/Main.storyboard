@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TvO-z6-VV8">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,73 +18,160 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_menu_ver2" translatesAutoresizingMaskIntoConstraints="NO" id="zLv-x8-drF">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYP-RI-Wk5">
-                                <rect key="frame" x="-6" y="48" width="212" height="212"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYP-RI-Wk5" userLabel="DRAWING">
+                                <rect key="frame" x="51" y="132" width="212" height="212"/>
                                 <state key="normal" image="icn_sketchbook_menu"/>
                                 <state key="highlighted" image="icn_sketchbook_menu_click"/>
                                 <connections>
                                     <action selector="onSelectedDrawing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Xy-fS-twJ"/>
+                                    <segue destination="Fzx-ET-f4L" kind="show" id="gdf-Db-n5k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTI-8c-8v0">
-                                <rect key="frame" x="188" y="117.5" width="164" height="133"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTI-8c-8v0" userLabel="STICKER">
+                                <rect key="frame" x="235" y="202" width="164" height="133"/>
                                 <state key="normal" image="icn_sticker_menu"/>
                                 <state key="highlighted" image="icn_sticker_menu_click"/>
                                 <connections>
                                     <action selector="onSelectedSticker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wfx-kB-vGf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRh-aG-dau">
-                                <rect key="frame" x="159" y="244" width="162" height="180"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRh-aG-dau" userLabel="COLORING">
+                                <rect key="frame" x="206" y="328" width="162" height="180"/>
                                 <state key="normal" image="icn_coloring_menu"/>
                                 <state key="highlighted" image="icn_coloring_menu_click"/>
                                 <connections>
                                     <action selector="onSelectedColoring:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V54-ys-GOA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVb-2r-wg1">
-                                <rect key="frame" x="-9.5" y="372.5" width="199" height="183"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVb-2r-wg1" userLabel="ALBUM">
+                                <rect key="frame" x="38" y="457" width="199" height="183"/>
                                 <state key="normal" image="icn_album_menu"/>
                                 <state key="highlighted" image="icn_album_menu_click"/>
                                 <connections>
                                     <action selector="onSelectedAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HuL-3f-iqa"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_pencil_menu_ver2" translatesAutoresizingMaskIntoConstraints="NO" id="gWV-kM-27F">
+                                <rect key="frame" x="51" y="212" width="117" height="200"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_eraser_menu_ver2" translatesAutoresizingMaskIntoConstraints="NO" id="iYd-YF-lc7">
+                                <rect key="frame" x="168" y="222" width="58" height="58"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_name_drawing_menu" translatesAutoresizingMaskIntoConstraints="NO" id="5xG-Yc-qmC">
+                                <rect key="frame" x="141" y="182" width="60" height="28"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_name_sticker_menu" translatesAutoresizingMaskIntoConstraints="NO" id="ZDd-wW-XY6">
+                                <rect key="frame" x="290" y="176" width="98" height="70"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_name_coloring_menu" translatesAutoresizingMaskIntoConstraints="NO" id="mih-ji-m72">
+                                <rect key="frame" x="297" y="348" width="61" height="41"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_name_album_menu" translatesAutoresizingMaskIntoConstraints="NO" id="qb8-ki-5yM">
+                                <rect key="frame" x="173" y="572" width="38" height="30"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mih-ji-m72" firstAttribute="leading" secondItem="yRh-aG-dau" secondAttribute="leading" constant="91" id="3DC-oT-cc3"/>
                             <constraint firstItem="YYP-RI-Wk5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-130" id="5uN-pw-ZjV"/>
-                            <constraint firstItem="YYP-RI-Wk5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="7Qa-Yx-RDJ"/>
+                            <constraint firstItem="ZDd-wW-XY6" firstAttribute="leading" secondItem="vTI-8c-8v0" secondAttribute="leading" constant="55" id="78L-Eq-P5p"/>
+                            <constraint firstItem="YYP-RI-Wk5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="7Qa-Yx-RDJ"/>
                             <constraint firstItem="RVb-2r-wg1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="180" id="8E9-7m-Umm"/>
+                            <constraint firstItem="iYd-YF-lc7" firstAttribute="top" secondItem="gWV-kM-27F" secondAttribute="top" constant="10" id="CPy-98-TB5"/>
                             <constraint firstItem="zLv-x8-drF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="O8n-iK-SRf"/>
+                            <constraint firstItem="5xG-Yc-qmC" firstAttribute="leading" secondItem="YYP-RI-Wk5" secondAttribute="leading" constant="90" id="OUR-jq-8DW"/>
                             <constraint firstAttribute="trailing" secondItem="zLv-x8-drF" secondAttribute="trailing" id="QWe-GA-6VQ"/>
                             <constraint firstItem="vTI-8c-8v0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="110" id="VDu-PE-zzo"/>
                             <constraint firstItem="yRh-aG-dau" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="50" id="WTO-hv-1re"/>
                             <constraint firstItem="vTI-8c-8v0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="ZPk-bV-pNw"/>
+                            <constraint firstItem="qb8-ki-5yM" firstAttribute="leading" secondItem="RVb-2r-wg1" secondAttribute="leading" constant="135" id="dLI-S6-hR0"/>
                             <constraint firstItem="RVb-2r-wg1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-70" id="dzC-yi-PDE"/>
+                            <constraint firstItem="gWV-kM-27F" firstAttribute="top" secondItem="YYP-RI-Wk5" secondAttribute="top" constant="80" id="e5V-y0-6NY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zLv-x8-drF" secondAttribute="bottom" id="hPB-vw-Eyj"/>
                             <constraint firstItem="yRh-aG-dau" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80" id="iSH-9U-XBO"/>
                             <constraint firstItem="zLv-x8-drF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qlr-7y-W1B"/>
+                            <constraint firstItem="5xG-Yc-qmC" firstAttribute="top" secondItem="YYP-RI-Wk5" secondAttribute="top" constant="50" id="t3q-ls-BAM"/>
+                            <constraint firstItem="qb8-ki-5yM" firstAttribute="top" secondItem="RVb-2r-wg1" secondAttribute="top" constant="115" id="w73-60-0v2"/>
+                            <constraint firstItem="gWV-kM-27F" firstAttribute="leading" secondItem="YYP-RI-Wk5" secondAttribute="leading" id="w76-mJ-gn9"/>
+                            <constraint firstItem="ZDd-wW-XY6" firstAttribute="top" secondItem="vTI-8c-8v0" secondAttribute="top" constant="-26" id="wvn-vH-KNq"/>
+                            <constraint firstItem="iYd-YF-lc7" firstAttribute="leading" secondItem="gWV-kM-27F" secondAttribute="leading" constant="117" id="xch-1l-hVu"/>
+                            <constraint firstItem="mih-ji-m72" firstAttribute="top" secondItem="yRh-aG-dau" secondAttribute="top" constant="20" id="y83-8i-PTf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="P36-vJ-I69"/>
+                    <connections>
+                        <outlet property="mIvAlbumName" destination="qb8-ki-5yM" id="Yhc-fS-sW6"/>
+                        <outlet property="mIvDrawName" destination="5xG-Yc-qmC" id="sp8-fk-rGR"/>
+                        <outlet property="mIvPaintName" destination="mih-ji-m72" id="YI4-Yq-rTs"/>
+                        <outlet property="mIvStickerName" destination="ZDd-wW-XY6" id="wJK-g3-6iR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23.4375" y="23.4375"/>
+            <point key="canvasLocation" x="330.43478260869568" y="22.826086956521742"/>
+        </scene>
+        <!--Drawing Menu View Controller-->
+        <scene sceneID="923-Ge-LHz">
+            <objects>
+                <viewController id="Fzx-ET-f4L" customClass="DrawingMenuViewController" customModule="KidsDrawing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ysv-YE-XoB"/>
+                        <viewControllerLayoutGuide type="bottom" id="r4r-ZY-fmI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5an-Z6-HOt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_drawing" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-lM-l5A">
+                                <rect key="frame" x="87" y="317" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QrF-9L-trX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1149" y="-416"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Aeu-Wz-eNj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TvO-z6-VV8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6mz-Vj-jnt">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vxL-PL-8oQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZY-YN-FbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-370" y="23"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background_drawing" width="360" height="551"/>
         <image name="background_menu_ver2" width="720" height="1130"/>
         <image name="icn_album_menu" width="199" height="183"/>
         <image name="icn_album_menu_click" width="256" height="222"/>
         <image name="icn_coloring_menu" width="162" height="180"/>
         <image name="icn_coloring_menu_click" width="162" height="180"/>
+        <image name="icn_eraser_menu_ver2" width="58" height="58"/>
+        <image name="icn_name_album_menu" width="38" height="30"/>
+        <image name="icn_name_coloring_menu" width="61" height="41"/>
+        <image name="icn_name_drawing_menu" width="60" height="28"/>
+        <image name="icn_name_sticker_menu" width="98" height="70"/>
+        <image name="icn_pencil_menu_ver2" width="117" height="200"/>
         <image name="icn_sketchbook_menu" width="212" height="212"/>
         <image name="icn_sketchbook_menu_click" width="212" height="212"/>
         <image name="icn_sticker_menu" width="164" height="133"/>

@@ -20,11 +20,18 @@ class ViewController: UIViewController {
     var mItemImage:ItemImage?
     var mItemStickersInfo:[ItemStickerGroupInfo]?
     
+    // MARK: - IBOutlet
+    @IBOutlet weak var mIvDrawName: UIImageView!
+    @IBOutlet weak var mIvStickerName: UIImageView!
+    @IBOutlet weak var mIvPaintName: UIImageView!
+    @IBOutlet weak var mIvAlbumName: UIImageView!
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.navigationController?.isNavigationBarHidden = true
+        setLocalizeImage();
         requestImageList()
     }
 
@@ -52,6 +59,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+    func setLocalizeImage() {
+        // 2017.10.10 : Localize
+        mIvDrawName.image = UIImage(named:NSLocalizedString("DRAW",comment:""))
+        mIvStickerName.image = UIImage(named:NSLocalizedString("STICKER", comment:""))
+        mIvPaintName.image = UIImage(named:NSLocalizedString("PAINT", comment:""))
+        mIvAlbumName.image = UIImage(named:NSLocalizedString("ALBUM", comment:""))
+    }
+    
     func requestImageList() {
         let decoder = JSONDecoder()
         Alamofire.request(SERVER_URL + SERVER_LIST_FILE).responseDecodableObject(decoder: decoder) { (response: DataResponse<ItemImage>) in
