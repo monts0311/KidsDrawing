@@ -43,7 +43,7 @@
                                 <state key="highlighted" image="icn_coloring_menu_click"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVb-2r-wg1" userLabel="ALBUM">
-                                <rect key="frame" x="38" y="457" width="199" height="183"/>
+                                <rect key="frame" x="37.666666666666657" y="457" width="199" height="183"/>
                                 <state key="normal" image="icn_album_menu"/>
                                 <state key="highlighted" image="icn_album_menu_click"/>
                             </button>
@@ -63,7 +63,7 @@
                                 <rect key="frame" x="297" y="348" width="61" height="41"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_name_album_menu" translatesAutoresizingMaskIntoConstraints="NO" id="qb8-ki-5yM">
-                                <rect key="frame" x="173" y="572" width="38" height="30"/>
+                                <rect key="frame" x="172.33333333333334" y="572" width="38" height="30"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -129,6 +129,26 @@
                                     <action selector="onBack:" destination="Fzx-ET-f4L" eventType="touchUpInside" id="vxZ-qE-6nv"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eZn-rI-Mly">
+                                <rect key="frame" x="0.0" y="122" width="414" height="614"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ktf-3G-Bbr">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="FXc-lc-98Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -136,10 +156,17 @@
                             <constraint firstItem="O3j-lM-l5A" firstAttribute="top" secondItem="Ysv-YE-XoB" secondAttribute="bottom" id="DNm-sy-UgS"/>
                             <constraint firstItem="O3j-lM-l5A" firstAttribute="leading" secondItem="5an-Z6-HOt" secondAttribute="leading" id="PyP-uf-VDz"/>
                             <constraint firstItem="r4r-ZY-fmI" firstAttribute="top" secondItem="O3j-lM-l5A" secondAttribute="bottom" id="Tgt-o0-XnQ"/>
+                            <constraint firstItem="eZn-rI-Mly" firstAttribute="leading" secondItem="5an-Z6-HOt" secondAttribute="leading" id="amu-Qa-v2g"/>
                             <constraint firstItem="rks-f0-Z9F" firstAttribute="top" secondItem="O3j-lM-l5A" secondAttribute="top" id="ccM-Sh-a3C"/>
+                            <constraint firstAttribute="trailing" secondItem="eZn-rI-Mly" secondAttribute="trailing" id="icu-bT-ikz"/>
+                            <constraint firstItem="eZn-rI-Mly" firstAttribute="top" secondItem="rks-f0-Z9F" secondAttribute="bottom" constant="10" id="lPn-Cl-2yy"/>
+                            <constraint firstItem="r4r-ZY-fmI" firstAttribute="top" secondItem="eZn-rI-Mly" secondAttribute="bottom" id="oxn-GA-m2K"/>
                             <constraint firstAttribute="trailing" secondItem="O3j-lM-l5A" secondAttribute="trailing" id="tOC-Xe-lKL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mCollectionView" destination="eZn-rI-Mly" id="mf0-d9-Pr9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrF-9L-trX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
