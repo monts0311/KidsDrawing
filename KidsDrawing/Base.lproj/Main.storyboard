@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KidsDrawing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="KidsDrawing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -29,7 +29,6 @@
                                 <state key="normal" image="icn_sketchbook_menu"/>
                                 <state key="highlighted" image="icn_sketchbook_menu_click"/>
                                 <connections>
-                                    <action selector="onSelectedDrawing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Xy-fS-twJ"/>
                                     <segue destination="Fzx-ET-f4L" kind="show" id="gdf-Db-n5k"/>
                                 </connections>
                             </button>
@@ -37,25 +36,16 @@
                                 <rect key="frame" x="235" y="202" width="164" height="133"/>
                                 <state key="normal" image="icn_sticker_menu"/>
                                 <state key="highlighted" image="icn_sticker_menu_click"/>
-                                <connections>
-                                    <action selector="onSelectedSticker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wfx-kB-vGf"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRh-aG-dau" userLabel="COLORING">
                                 <rect key="frame" x="206" y="328" width="162" height="180"/>
                                 <state key="normal" image="icn_coloring_menu"/>
                                 <state key="highlighted" image="icn_coloring_menu_click"/>
-                                <connections>
-                                    <action selector="onSelectedColoring:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V54-ys-GOA"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVb-2r-wg1" userLabel="ALBUM">
                                 <rect key="frame" x="38" y="457" width="199" height="183"/>
                                 <state key="normal" image="icn_album_menu"/>
                                 <state key="highlighted" image="icn_album_menu_click"/>
-                                <connections>
-                                    <action selector="onSelectedAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HuL-3f-iqa"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_pencil_menu_ver2" translatesAutoresizingMaskIntoConstraints="NO" id="gWV-kM-27F">
                                 <rect key="frame" x="51" y="212" width="117" height="200"/>
@@ -128,12 +118,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_drawing" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-lM-l5A">
-                                <rect key="frame" x="87" y="317" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_drawing" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-lM-l5A">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rks-f0-Z9F">
+                                <rect key="frame" x="0.0" y="64" width="50" height="48"/>
+                                <state key="normal" image="icn_exit_button"/>
+                                <state key="highlighted" image="icn_exit_button_click"/>
+                                <connections>
+                                    <action selector="onBack:" destination="Fzx-ET-f4L" eventType="touchUpInside" id="vxZ-qE-6nv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rks-f0-Z9F" firstAttribute="leading" secondItem="O3j-lM-l5A" secondAttribute="leading" id="2wV-3B-Zga"/>
+                            <constraint firstItem="O3j-lM-l5A" firstAttribute="top" secondItem="Ysv-YE-XoB" secondAttribute="bottom" id="DNm-sy-UgS"/>
+                            <constraint firstItem="O3j-lM-l5A" firstAttribute="leading" secondItem="5an-Z6-HOt" secondAttribute="leading" id="PyP-uf-VDz"/>
+                            <constraint firstItem="r4r-ZY-fmI" firstAttribute="top" secondItem="O3j-lM-l5A" secondAttribute="bottom" id="Tgt-o0-XnQ"/>
+                            <constraint firstItem="rks-f0-Z9F" firstAttribute="top" secondItem="O3j-lM-l5A" secondAttribute="top" id="ccM-Sh-a3C"/>
+                            <constraint firstAttribute="trailing" secondItem="O3j-lM-l5A" secondAttribute="trailing" id="tOC-Xe-lKL"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrF-9L-trX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,6 +172,8 @@
         <image name="icn_coloring_menu" width="162" height="180"/>
         <image name="icn_coloring_menu_click" width="162" height="180"/>
         <image name="icn_eraser_menu_ver2" width="58" height="58"/>
+        <image name="icn_exit_button" width="50" height="48"/>
+        <image name="icn_exit_button_click" width="50" height="48"/>
         <image name="icn_name_album_menu" width="38" height="30"/>
         <image name="icn_name_coloring_menu" width="61" height="41"/>
         <image name="icn_name_drawing_menu" width="60" height="28"/>

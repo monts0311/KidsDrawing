@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import CodableAlamofire
 
-class ViewController: UIViewController {
+class MainMenuViewController: UIViewController {
     // MARK: - Const
     let SERVER_URL: String = "http://kidsking.co/hong/"
     let SERVER_LIST_FILE: String = "list_test.json"
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension MainMenuViewController {
     func setLocalizeImage() {
         // 2017.10.10 : Localize
         mIvDrawName.image = UIImage(named:NSLocalizedString("DRAW",comment:""))
