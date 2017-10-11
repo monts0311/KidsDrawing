@@ -145,7 +145,39 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHr-ds-ame">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0m-q2-v33">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <state key="normal" image="frame_small"/>
+                                                            <state key="highlighted" image="frame_small_click"/>
+                                                        </button>
+                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gallery_thumbnail_1" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-zr-Dei">
+                                                            <rect key="frame" x="7" y="7" width="36" height="36"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="X0m-q2-v33" secondAttribute="bottom" id="4be-Mt-Iz4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1l9-zr-Dei" secondAttribute="bottom" constant="7" id="7YU-hy-uvY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="X0m-q2-v33" secondAttribute="trailing" id="CVk-mg-YdE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1l9-zr-Dei" secondAttribute="trailing" constant="7" id="PWw-93-QSG"/>
+                                                        <constraint firstItem="X0m-q2-v33" firstAttribute="top" secondItem="LHr-ds-ame" secondAttribute="top" id="TkT-21-dhY"/>
+                                                        <constraint firstItem="X0m-q2-v33" firstAttribute="leading" secondItem="LHr-ds-ame" secondAttribute="leading" id="kdz-7p-NCr"/>
+                                                        <constraint firstItem="1l9-zr-Dei" firstAttribute="leading" secondItem="LHr-ds-ame" secondAttribute="leading" constant="7" id="lTY-kf-GU4"/>
+                                                        <constraint firstItem="1l9-zr-Dei" firstAttribute="top" secondItem="LHr-ds-ame" secondAttribute="top" constant="7" id="tqt-Mm-x8A"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="LHr-ds-ame" secondAttribute="bottom" id="epW-3c-Wr2"/>
+                                            <constraint firstAttribute="trailing" secondItem="LHr-ds-ame" secondAttribute="trailing" id="fow-eI-0h9"/>
+                                            <constraint firstItem="LHr-ds-ame" firstAttribute="leading" secondItem="FXc-lc-98Y" secondAttribute="leading" id="q5t-aw-9mS"/>
+                                            <constraint firstItem="LHr-ds-ame" firstAttribute="top" secondItem="FXc-lc-98Y" secondAttribute="top" id="rlS-ZQ-mix"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -194,6 +226,9 @@
     <resources>
         <image name="background_drawing" width="360" height="551"/>
         <image name="background_menu_ver2" width="720" height="1130"/>
+        <image name="frame_small" width="150" height="126"/>
+        <image name="frame_small_click" width="150" height="126"/>
+        <image name="gallery_thumbnail_1" width="135" height="110"/>
         <image name="icn_album_menu" width="199" height="183"/>
         <image name="icn_album_menu_click" width="256" height="222"/>
         <image name="icn_coloring_menu" width="162" height="180"/>

@@ -33,8 +33,13 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "image",
                                                       for: indexPath)
-        cell.backgroundColor = UIColor.black
         // Configure the cell
+        if let imageView = cell.viewWithTag(1) as? UIImageView {
+            imageView.layer.cornerRadius = 25
+            imageView.clipsToBounds = true
+            print(imageView)
+        }
+        
         return cell
     }
     
