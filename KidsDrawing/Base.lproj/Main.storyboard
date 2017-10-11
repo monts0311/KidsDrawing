@@ -154,7 +154,7 @@
                                                             <state key="normal" image="frame_small"/>
                                                             <state key="highlighted" image="frame_small_click"/>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gallery_thumbnail_1" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-zr-Dei">
+                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-zr-Dei">
                                                             <rect key="frame" x="7" y="7" width="36" height="36"/>
                                                         </imageView>
                                                     </subviews>
@@ -228,7 +228,6 @@
         <image name="background_menu_ver2" width="720" height="1130"/>
         <image name="frame_small" width="150" height="126"/>
         <image name="frame_small_click" width="150" height="126"/>
-        <image name="gallery_thumbnail_1" width="135" height="110"/>
         <image name="icn_album_menu" width="199" height="183"/>
         <image name="icn_album_menu_click" width="256" height="222"/>
         <image name="icn_coloring_menu" width="162" height="180"/>

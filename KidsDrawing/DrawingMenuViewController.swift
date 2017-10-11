@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - var
+    var mItem:[ItemBackgroudImage] = []
+    
     // MARK: - IBOutlet
     @IBOutlet weak var mCollectionView: UICollectionView!
     
@@ -18,6 +23,7 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         mCollectionView.delegate = self
         mCollectionView.dataSource = self
+        makeItemList()
     }
 
     // MARK: - IBAction
@@ -27,7 +33,7 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
     
     // MARK: - DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20;
+        return mItem.count;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -37,7 +43,8 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
         if let imageView = cell.viewWithTag(1) as? UIImageView {
             imageView.layer.cornerRadius = 25
             imageView.clipsToBounds = true
-            print(imageView)
+            imageView.image = nil;
+            imageView.af_setImage(withURL: URL(string:mItem[indexPath.row].thumbnailUrl)!)
         }
         
         return cell
@@ -61,5 +68,22 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+    
+    // MARK: - private
+    func makeItemList() {
+        if let images = mItemImage {
+            for image in images.imgList {
+                if (image.menuNumber == 0) {
+                    var item = ItemBackgroudImage()
+                    item.bServerUrl = true
+                    item.thumbnailUrl = SERVER_URL + "/Img/" + image.thumbnailUrl
+                    item.backgroundUrl = SERVER_URL + "/Img/" + image.backgroundUrl
+                    mItem.append(item)
+                }
+            }
+        }
+        
+        print("ImageCount : \(mItem.count)")
     }
 }

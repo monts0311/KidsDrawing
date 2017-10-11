@@ -10,15 +10,16 @@ import UIKit
 import Alamofire
 import CodableAlamofire
 
+// MARK: - Global
+var mItemImage:ItemImage?
+var mItemStickersInfo:[ItemStickerGroupInfo]?
+
+// MARK: - Const
+let SERVER_URL: String = "http://kidsking.co/hong/"
+let SERVER_LIST_FILE: String = "list_test.json"
+let SERVER_STICKER_LIST_FILE: String = "list_sticker.json"
+
 class MainMenuViewController: UIViewController {
-    // MARK: - Const
-    let SERVER_URL: String = "http://kidsking.co/hong/"
-    let SERVER_LIST_FILE: String = "list_test.json"
-    let SERVER_STICKER_LIST_FILE: String = "list_sticker.json"
-    
-    // MARK: - Global
-    var mItemImage:ItemImage?
-    var mItemStickersInfo:[ItemStickerGroupInfo]?
     
     // MARK: - IBOutlet
     @IBOutlet weak var mIvDrawName: UIImageView!
@@ -71,7 +72,7 @@ extension MainMenuViewController {
         let decoder = JSONDecoder()
         Alamofire.request(SERVER_URL + SERVER_LIST_FILE).responseDecodableObject(decoder: decoder) { (response: DataResponse<ItemImage>) in
             if let item = response.result.value {
-                self.mItemImage = item
+                mItemImage = item
 //                print(self.mItemImage)
                 self.requestStickerList()
             }
@@ -82,7 +83,7 @@ extension MainMenuViewController {
         let decoder = JSONDecoder()
         Alamofire.request(SERVER_URL + SERVER_STICKER_LIST_FILE).responseDecodableObject(keyPath: "itemStickerGroups", decoder: decoder) { (response: DataResponse<[ItemStickerGroupInfo]>) in
             if let item = response.result.value {
-                self.mItemStickersInfo = item
+                mItemStickersInfo = item
 //                print("\n\n")
 //                print(self.mItemStickersInfo)
             }

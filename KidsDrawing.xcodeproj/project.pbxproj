@@ -15,6 +15,7 @@
 		9D18EBC81F4561C8009A6E7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D18EBC61F4561C8009A6E7B /* Main.storyboard */; };
 		9D18EBCD1F4561C8009A6E7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D18EBCB1F4561C8009A6E7B /* LaunchScreen.storyboard */; };
 		9D516D291F7DF80500C4BF74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D840BF21F7DE92700A4A71F /* Assets.xcassets */; };
+		9DF194B81F8DEC1E0013F98D /* ItemBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF194B71F8DEC1E0013F98D /* ItemBackgroundImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9D18EBCC1F4561C8009A6E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D18EBCE1F4561C8009A6E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D840BF21F7DE92700A4A71F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DF194B71F8DEC1E0013F98D /* ItemBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemBackgroundImage.swift; sourceTree = "<group>"; };
 		E538A7D63D157F6821C4C53D /* Pods_KidsDrawing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsDrawing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 				9D18EBCE1F4561C8009A6E7B /* Info.plist */,
 				9D0258051F8C598D0015D5AB /* Localizable.strings */,
 				9D0258081F8C68E60015D5AB /* DrawingMenuViewController.swift */,
+				9DF194B71F8DEC1E0013F98D /* ItemBackgroundImage.swift */,
 			);
 			path = KidsDrawing;
 			sourceTree = "<group>";
@@ -193,11 +196,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KidsDrawing/Pods-KidsDrawing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +237,7 @@
 			files = (
 				9D18EBC51F4561C8009A6E7B /* MainMenuViewController.swift in Sources */,
 				9D18EBC31F4561C8009A6E7B /* AppDelegate.swift in Sources */,
+				9DF194B81F8DEC1E0013F98D /* ItemBackgroundImage.swift in Sources */,
 				9D0258091F8C68E60015D5AB /* DrawingMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

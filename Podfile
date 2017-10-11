@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'KidsDrawing' do
     pod 'CodableAlamofire'
+    pod 'AlamofireImage', '~> 3.3'
 end
