@@ -43,8 +43,26 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
         if let imageView = cell.viewWithTag(1) as? UIImageView {
             imageView.layer.cornerRadius = 25
             imageView.clipsToBounds = true
-            imageView.image = nil;
-            imageView.af_setImage(withURL: URL(string:mItem[indexPath.row].thumbnailUrl)!)
+
+            if mItem[indexPath.row].bServerUrl == true {
+                imageView.image = nil;
+                imageView.af_setImage(withURL: URL(string:mItem[indexPath.row].thumbnailUrl)!)
+                
+            } else {
+                imageView.image = UIImage(named: mItem[indexPath.row].thumbnailUrl)
+                
+            }
+
+        }
+        
+        if let imageView = cell.viewWithTag(2) as? UIImageView {
+            if mItem[indexPath.row].bNew == true {
+                imageView.isHidden = false
+                
+            } else {
+                imageView.isHidden = true
+                
+            }
         }
         
         return cell
@@ -72,18 +90,88 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
     
     // MARK: - private
     func makeItemList() {
+        // functional data
+        var gallery = ItemBackgroudImage()
+        gallery.thumbnailUrl = NSLocalizedString("GALLERY", comment: "")
+        gallery.listFunction = FUNCTION_GALLERY
+        mItem.append(gallery)
+        
+        var picture = ItemBackgroudImage()
+        picture.thumbnailUrl = NSLocalizedString("PICTURE", comment: "")
+        picture.listFunction = FUNCTION_CAMERA
+        mItem.append(picture)
+
+        var white = ItemBackgroudImage()
+        white.thumbnailUrl = NSLocalizedString("WHITE_SKETCHBOOK", comment: "")
+        white.listFunction = FUNCTION_WHITE_BACKGROUND
+        mItem.append(white)
+
+        var black = ItemBackgroudImage()
+        black.thumbnailUrl = NSLocalizedString("BLACK_SKETCHBOOK", comment: "")
+        black.listFunction = FUNCTION_BLACK_BACKGROUND
+        mItem.append(black)
+
+        // server Data
         if let images = mItemImage {
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd"
+            
+            // timeIntervalSince1970 : 초 기준...
+            let twoWeeksAgo = Date().timeIntervalSince1970 - 14 * 24 * 60 * 60
             for image in images.imgList {
                 if (image.menuNumber == 0) {
                     var item = ItemBackgroudImage()
                     item.bServerUrl = true
-                    item.thumbnailUrl = SERVER_URL + "/Img/" + image.thumbnailUrl
-                    item.backgroundUrl = SERVER_URL + "/Img/" + image.backgroundUrl
+                    item.thumbnailUrl = SERVER_URL + "Img/" + image.thumbnailUrl
+                    item.backgroundUrl = SERVER_URL + "Img/" + image.backgroundUrl
+                    
+                    if let date = format.date(from: image.regDate) {
+                        if (date.timeIntervalSince1970 > twoWeeksAgo) {
+                            item.bNew = true
+                        }
+                    }
+ 
                     mItem.append(item)
                 }
             }
         }
+
+        // local Data
+        let drawing_thumbnail:[String] = [
+            "day_mountain_270x220",
+            "night_mountain_270x220",
+            "day_field_270x220",
+            "night_field_270x220_2",
+            "day_sea_270x220",
+            "night_sea_270x220",
+            "inside_sea_270x220_2",
+            "day_village_270x220",
+            "night_village_270x220",
+            "space_270x220",
+            "castle_270x220_2"
+        ]
         
+        let drawing_background:[String] = [
+            "day_mountain",
+            "night_mountain",
+            "day_field",
+            "night_field",
+            "day_sea",
+            "night_sea",
+            "inside_sea",
+            "day_village",
+            "night_village",
+            "space",
+            "castle"
+        ]
+        
+        for i in 0..<drawing_thumbnail.count {
+            var item = ItemBackgroudImage()
+            item.thumbnailUrl = drawing_thumbnail[i]
+            item.backgroundUrl = drawing_background[i]
+            mItem.append(item)
+        }
+
         print("ImageCount : \(mItem.count)")
     }
 }

@@ -2,3 +2,7 @@
 "STICKER" = "icn_name_sticker_menu_kr";
 "PAINT" = "icn_name_coloring_menu_kr";
 "ALBUM" = "icn_name_album_menu_kr";
+"GALLERY" = "gallery_thumbnail_1";
+"PICTURE" = "camera_thumbnail_1";
+"WHITE_SKETCHBOOK" = "sketchbook_thumbnail_1";
+"BLACK_SKETCHBOOK" = "blackbook_thumbnail_1";

@@ -157,6 +157,9 @@
                                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-zr-Dei">
                                                             <rect key="frame" x="7" y="7" width="36" height="36"/>
                                                         </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new1" translatesAutoresizingMaskIntoConstraints="NO" id="gDP-aV-wk4">
+                                                            <rect key="frame" x="-23" y="0.0" width="73" height="54"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -165,6 +168,8 @@
                                                         <constraint firstAttribute="trailing" secondItem="X0m-q2-v33" secondAttribute="trailing" id="CVk-mg-YdE"/>
                                                         <constraint firstAttribute="trailing" secondItem="1l9-zr-Dei" secondAttribute="trailing" constant="7" id="PWw-93-QSG"/>
                                                         <constraint firstItem="X0m-q2-v33" firstAttribute="top" secondItem="LHr-ds-ame" secondAttribute="top" id="TkT-21-dhY"/>
+                                                        <constraint firstItem="gDP-aV-wk4" firstAttribute="top" secondItem="LHr-ds-ame" secondAttribute="top" id="VoX-bx-jH6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gDP-aV-wk4" secondAttribute="trailing" id="jmB-Iw-ehY"/>
                                                         <constraint firstItem="X0m-q2-v33" firstAttribute="leading" secondItem="LHr-ds-ame" secondAttribute="leading" id="kdz-7p-NCr"/>
                                                         <constraint firstItem="1l9-zr-Dei" firstAttribute="leading" secondItem="LHr-ds-ame" secondAttribute="leading" constant="7" id="lTY-kf-GU4"/>
                                                         <constraint firstItem="1l9-zr-Dei" firstAttribute="top" secondItem="LHr-ds-ame" secondAttribute="top" constant="7" id="tqt-Mm-x8A"/>
@@ -244,5 +249,6 @@
         <image name="icn_sketchbook_menu_click" width="212" height="212"/>
         <image name="icn_sticker_menu" width="164" height="133"/>
         <image name="icn_sticker_menu_click" width="164" height="133"/>
+        <image name="new1" width="73" height="54"/>
     </resources>
 </document>

@@ -73,7 +73,7 @@ extension MainMenuViewController {
         Alamofire.request(SERVER_URL + SERVER_LIST_FILE).responseDecodableObject(decoder: decoder) { (response: DataResponse<ItemImage>) in
             if let item = response.result.value {
                 mItemImage = item
-//                print(self.mItemImage)
+//                print(mItemImage)
                 self.requestStickerList()
             }
         }
