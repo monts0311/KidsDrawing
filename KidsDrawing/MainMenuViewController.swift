@@ -59,6 +59,28 @@ class MainMenuViewController: UIViewController {
     }
 }
 
+extension Alamofire.SessionManager {
+    @discardableResult
+    open func requestWithoutCache(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil)
+        -> DataRequest
+    {
+        do {
+            var urlRequest = try URLRequest(url: url, method: method, headers: headers)
+            urlRequest.cachePolicy = .reloadIgnoringCacheData // <<== Cache disabled
+            let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
+            return request(encodedURLRequest)
+        } catch {
+            print(error)
+            return request(URLRequest(url: URL(string: "http://example.com/wrong_request")!))
+        }
+    }
+}
+
 extension MainMenuViewController {
     func setLocalizeImage() {
         // 2017.10.10 : Localize
@@ -70,7 +92,15 @@ extension MainMenuViewController {
     
     func requestImageList() {
         let decoder = JSONDecoder()
-        Alamofire.request(SERVER_URL + SERVER_LIST_FILE).responseDecodableObject(decoder: decoder) { (response: DataResponse<ItemImage>) in
+
+        // 2017.10.12 : Alamofire Cache 문제 처리
+        var urlRequest = URLRequest(url: URL(string:SERVER_URL + SERVER_LIST_FILE)!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("<Auth KEY>", forHTTPHeaderField:"Authorization" )
+        urlRequest.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        
+        Alamofire.request(urlRequest).validate().responseDecodableObject(decoder: decoder) { (response: DataResponse<ItemImage>) in
             if let item = response.result.value {
                 mItemImage = item
 //                print(mItemImage)
@@ -81,7 +111,15 @@ extension MainMenuViewController {
     
     func requestStickerList() {
         let decoder = JSONDecoder()
-        Alamofire.request(SERVER_URL + SERVER_STICKER_LIST_FILE).responseDecodableObject(keyPath: "itemStickerGroups", decoder: decoder) { (response: DataResponse<[ItemStickerGroupInfo]>) in
+        
+        // 2017.10.12 : Alamofire Cache 문제 처리
+        var urlRequest = URLRequest(url: URL(string:SERVER_URL + SERVER_STICKER_LIST_FILE)!)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("<Auth KEY>", forHTTPHeaderField:"Authorization" )
+        urlRequest.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+
+        Alamofire.request(SERVER_URL + SERVER_STICKER_LIST_FILE).validate().responseDecodableObject(keyPath: "itemStickerGroups", decoder: decoder) { (response: DataResponse<[ItemStickerGroupInfo]>) in
             if let item = response.result.value {
                 mItemStickersInfo = item
 //                print("\n\n")

@@ -127,6 +127,7 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
                     
                     if let date = format.date(from: image.regDate) {
                         if (date.timeIntervalSince1970 > twoWeeksAgo) {
+                            print("new")
                             item.bNew = true
                         }
                     }
