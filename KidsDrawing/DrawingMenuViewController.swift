@@ -31,6 +31,15 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onSelectedAction(_ sender: Any) {
+        if let view = sender as? UIView {
+            if let cell = view.parentViewOfType(type: UICollectionViewCell.self) {
+                let indexPath = mCollectionView.indexPath(for: cell)
+                print(indexPath ?? <#default value#>)
+            }
+        }
+    }
+    
     // MARK: - DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mItem.count;
@@ -64,7 +73,6 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
                 
             }
         }
-        
         return cell
     }
     
@@ -174,5 +182,18 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
         }
 
         print("ImageCount : \(mItem.count)")
+    }
+}
+
+extension UIView {
+    func parentViewOfType<T>(type: T.Type) -> T? {
+        var currentView = self
+        while currentView.superview != nil {
+            if currentView is T {
+                return currentView as? T
+            }
+            currentView = currentView.superview!
+        }
+        return nil
     }
 }

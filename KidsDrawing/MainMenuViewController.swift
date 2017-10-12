@@ -32,6 +32,7 @@ class MainMenuViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationController?.isNavigationBarHidden = true
+
         setLocalizeImage();
         requestImageList()
     }

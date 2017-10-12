@@ -153,12 +153,21 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <state key="normal" image="frame_small"/>
                                                             <state key="highlighted" image="frame_small_click"/>
+                                                            <connections>
+                                                                <action selector="onSelectedAction:" destination="Fzx-ET-f4L" eventType="touchUpInside" id="EXm-N9-SiG"/>
+                                                            </connections>
                                                         </button>
                                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-zr-Dei">
                                                             <rect key="frame" x="7" y="7" width="36" height="36"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                            </accessibility>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new1" translatesAutoresizingMaskIntoConstraints="NO" id="gDP-aV-wk4">
                                                             <rect key="frame" x="-23" y="0.0" width="73" height="54"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                            </accessibility>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
