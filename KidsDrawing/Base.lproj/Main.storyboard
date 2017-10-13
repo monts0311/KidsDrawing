@@ -212,11 +212,85 @@
                     </view>
                     <connections>
                         <outlet property="mCollectionView" destination="eZn-rI-Mly" id="mf0-d9-Pr9"/>
+                        <segue destination="rF3-Wp-CL1" kind="show" identifier="DRAW_SEGUE" id="i4K-0m-SUV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrF-9L-trX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1149" y="-416"/>
+            <point key="canvasLocation" x="1119" y="-404"/>
+        </scene>
+        <!--Drawing View Controller-->
+        <scene sceneID="4TO-hx-bsT">
+            <objects>
+                <viewController storyboardIdentifier="DRAW" id="rF3-Wp-CL1" customClass="DrawingViewController" customModule="KidsDrawing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kdw-zn-Uwh"/>
+                        <viewControllerLayoutGuide type="bottom" id="gC4-kR-6bP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="DRAW" id="Vhc-4s-RPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QSt-jT-DJp">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-oc-XU2">
+                                <rect key="frame" x="132" y="64" width="150" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49X-nD-vvG">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="48"/>
+                                        <state key="normal" image="icn_exit_button"/>
+                                        <state key="highlighted" image="icn_exit_button_click"/>
+                                        <connections>
+                                            <action selector="onBack:" destination="rF3-Wp-CL1" eventType="touchUpInside" id="cd5-2I-ZzP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRP-TS-7dH">
+                                        <rect key="frame" x="50" y="0.0" width="50" height="48"/>
+                                        <state key="normal" image="icn_save_button"/>
+                                        <state key="highlighted" image="icn_save_button_click"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-xF-mda">
+                                        <rect key="frame" x="100" y="0.0" width="50" height="48"/>
+                                        <state key="normal" image="icn_sound_button"/>
+                                        <state key="highlighted" image="icn_sound_button_click"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baz-V4-J7A">
+                                <rect key="frame" x="0.0" y="144" width="414" height="588"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y2n-2Q-PVI">
+                                <rect key="frame" x="0.0" y="144" width="414" height="588"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y2n-2Q-PVI" firstAttribute="leading" secondItem="Vhc-4s-RPQ" secondAttribute="leading" id="1vt-bd-Oyv"/>
+                            <constraint firstItem="baz-V4-J7A" firstAttribute="top" secondItem="y2n-2Q-PVI" secondAttribute="top" id="BHf-Cn-BVB"/>
+                            <constraint firstItem="baz-V4-J7A" firstAttribute="leading" secondItem="y2n-2Q-PVI" secondAttribute="leading" id="CYC-k4-E0I"/>
+                            <constraint firstItem="baz-V4-J7A" firstAttribute="trailing" secondItem="y2n-2Q-PVI" secondAttribute="trailing" id="Dgc-gF-rza"/>
+                            <constraint firstItem="QSt-jT-DJp" firstAttribute="leading" secondItem="Vhc-4s-RPQ" secondAttribute="leading" id="HoI-Zc-nYG"/>
+                            <constraint firstItem="gC4-kR-6bP" firstAttribute="top" secondItem="QSt-jT-DJp" secondAttribute="bottom" id="MsB-Fz-LDe"/>
+                            <constraint firstItem="HtO-oc-XU2" firstAttribute="centerX" secondItem="Vhc-4s-RPQ" secondAttribute="centerX" id="RBR-7J-U8P"/>
+                            <constraint firstAttribute="trailing" secondItem="QSt-jT-DJp" secondAttribute="trailing" id="ahd-Aw-fmU"/>
+                            <constraint firstAttribute="trailing" secondItem="y2n-2Q-PVI" secondAttribute="trailing" id="fs3-4n-f3y"/>
+                            <constraint firstItem="gC4-kR-6bP" firstAttribute="top" secondItem="y2n-2Q-PVI" secondAttribute="bottom" constant="4" id="qZs-lW-rCc"/>
+                            <constraint firstItem="baz-V4-J7A" firstAttribute="bottom" secondItem="y2n-2Q-PVI" secondAttribute="bottom" id="sbO-rL-NFm"/>
+                            <constraint firstItem="QSt-jT-DJp" firstAttribute="top" secondItem="kdw-zn-Uwh" secondAttribute="bottom" id="tho-Ve-att"/>
+                            <constraint firstItem="y2n-2Q-PVI" firstAttribute="top" secondItem="kdw-zn-Uwh" secondAttribute="bottom" constant="80" id="wvj-Ed-FHi"/>
+                            <constraint firstItem="HtO-oc-XU2" firstAttribute="top" secondItem="kdw-zn-Uwh" secondAttribute="bottom" id="xFG-2X-hcC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mIvBg" destination="QSt-jT-DJp" id="5zP-h8-NBr"/>
+                        <outlet property="mIvDoubleBuffer" destination="baz-V4-J7A" id="sND-tC-X02"/>
+                        <outlet property="mIvDraw" destination="y2n-2Q-PVI" id="BfU-ro-2qq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yZM-dM-SEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1848" y="23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aeu-Wz-eNj">
@@ -236,6 +310,13 @@
             </objects>
             <point key="canvasLocation" x="-370" y="23"/>
         </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Gry-NS-Aa5">
+            <objects>
+                <viewControllerPlaceholder id="f1y-Dd-4wR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5j-ln-Xnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="background_drawing" width="360" height="551"/>
@@ -254,8 +335,12 @@
         <image name="icn_name_drawing_menu" width="60" height="28"/>
         <image name="icn_name_sticker_menu" width="98" height="70"/>
         <image name="icn_pencil_menu_ver2" width="117" height="200"/>
+        <image name="icn_save_button" width="50" height="48"/>
+        <image name="icn_save_button_click" width="50" height="48"/>
         <image name="icn_sketchbook_menu" width="212" height="212"/>
         <image name="icn_sketchbook_menu_click" width="212" height="212"/>
+        <image name="icn_sound_button" width="50" height="48"/>
+        <image name="icn_sound_button_click" width="50" height="48"/>
         <image name="icn_sticker_menu" width="164" height="133"/>
         <image name="icn_sticker_menu_click" width="164" height="133"/>
         <image name="new1" width="73" height="54"/>

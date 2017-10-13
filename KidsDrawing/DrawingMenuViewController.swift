@@ -35,7 +35,8 @@ class DrawingMenuViewController : UIViewController, UICollectionViewDelegate, UI
         if let view = sender as? UIView {
             if let cell = view.parentViewOfType(type: UICollectionViewCell.self) {
                 let indexPath = mCollectionView.indexPath(for: cell)
-                print(indexPath ?? <#default value#>)
+                print(indexPath)
+                performSegue(withIdentifier: "DRAW_SEGUE", sender: self)
             }
         }
     }
