@@ -249,6 +249,9 @@
                                         <rect key="frame" x="50" y="0.0" width="50" height="48"/>
                                         <state key="normal" image="icn_save_button"/>
                                         <state key="highlighted" image="icn_save_button_click"/>
+                                        <connections>
+                                            <action selector="onEraseMode:" destination="rF3-Wp-CL1" eventType="touchUpInside" id="Lig-YC-MW2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-xF-mda">
                                         <rect key="frame" x="100" y="0.0" width="50" height="48"/>

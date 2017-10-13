@@ -20,18 +20,23 @@ class DrawingViewController : UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    var lastPoint = CGPoint.zero
-    var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
-    var opacity: CGFloat = 1.0
-    var swiped = false
+    @IBAction func onEraseMode(_ sender: Any) {
+        mEraseMode = !mEraseMode
+    }
+    
+    var mLastPoint = CGPoint.zero
+    var mRed: CGFloat = 0.0
+    var mGreen: CGFloat = 0.0
+    var mBlue: CGFloat = 0.0
+    var mBrushWidth: CGFloat = 10.0
+    var mOpacity: CGFloat = 1.0
+    var mSwiped = false
+    var mEraseMode = false
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        swiped = false
+        mSwiped = false
         if let touch = touches.first {
-            lastPoint = touch.location(in: self.mIvDoubleBuffer)
+            mLastPoint = touch.location(in: self.mIvDoubleBuffer)
         }
     }
     
@@ -40,7 +45,12 @@ class DrawingViewController : UIViewController {
         // 1
         UIGraphicsBeginImageContext(mIvDoubleBuffer.frame.size)
         let context = UIGraphicsGetCurrentContext()
-        mIvDoubleBuffer.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDoubleBuffer.frame.size.width, height: mIvDoubleBuffer.frame.size.height))
+        
+        if mEraseMode == false {
+            mIvDoubleBuffer.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDoubleBuffer.frame.size.width, height: mIvDoubleBuffer.frame.size.height))
+        } else {
+            mIvDraw.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDraw.frame.size.width, height: mIvDraw.frame.size.height))
+        }
         
         // 2
         context?.move(to: fromPoint)
@@ -48,45 +58,51 @@ class DrawingViewController : UIViewController {
         
         // 3
         context?.setLineCap(CGLineCap.round)
-        context?.setLineWidth(brushWidth)
-        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: 1.0)
-        context?.setBlendMode(CGBlendMode.normal)
+        context?.setLineWidth(mBrushWidth)
+        context?.setStrokeColor(red: mRed, green: mGreen, blue: mBlue, alpha: 1.0)
+        context?.setBlendMode(mEraseMode == false ? CGBlendMode.normal : CGBlendMode.clear)
         
         // 4
         context?.strokePath()
         
         // 5
-        mIvDoubleBuffer.image = UIGraphicsGetImageFromCurrentImageContext()
-        mIvDoubleBuffer.alpha = opacity
+        if mEraseMode == false {
+            mIvDoubleBuffer.image = UIGraphicsGetImageFromCurrentImageContext()
+            mIvDoubleBuffer.alpha = mOpacity
+        } else {
+            mIvDraw.image = UIGraphicsGetImageFromCurrentImageContext()
+        }
         UIGraphicsEndImageContext()
         
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 6
-        swiped = true
+        mSwiped = true
         if let touch = touches.first {
             let currentPoint = touch.location(in: self.mIvDoubleBuffer)
-            drawLineFrom(fromPoint: lastPoint, toPoint: currentPoint)
+            drawLineFrom(fromPoint: mLastPoint, toPoint: currentPoint)
             
             // 7
-            lastPoint = currentPoint
+            mLastPoint = currentPoint
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if !swiped {
+        if !mSwiped {
             // draw a single point
-            drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
+            drawLineFrom(fromPoint: mLastPoint, toPoint: mLastPoint)
         }
         
-        UIGraphicsBeginImageContext(mIvDoubleBuffer.frame.size)
-        mIvDraw.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDraw.frame.size.width, height: mIvDraw.frame.size.height), blendMode: CGBlendMode.normal, alpha: 1.0)
-        mIvDoubleBuffer.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDoubleBuffer.frame.size.width, height: mIvDoubleBuffer.frame.size.height), blendMode: CGBlendMode.normal, alpha: opacity)
-        mIvDraw.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        mIvDoubleBuffer.image = nil
+        if mEraseMode == false {
+            UIGraphicsBeginImageContext(mIvDoubleBuffer.frame.size)
+            mIvDraw.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDraw.frame.size.width, height: mIvDraw.frame.size.height), blendMode: CGBlendMode.normal, alpha: 1.0)
+            mIvDoubleBuffer.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDoubleBuffer.frame.size.width, height: mIvDoubleBuffer.frame.size.height), blendMode: CGBlendMode.normal, alpha: mOpacity)
+            mIvDraw.image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            mIvDoubleBuffer.image = nil
+        }
     }
 }
