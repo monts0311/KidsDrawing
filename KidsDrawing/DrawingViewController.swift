@@ -9,11 +9,15 @@
 import UIKit
 
 class DrawingViewController : UIViewController {
+    @IBOutlet weak var mIvSave: UIImageView!
     @IBOutlet weak var mIvBg: UIImageView!
     @IBOutlet weak var mIvDoubleBuffer: UIImageView!
     @IBOutlet weak var mIvDraw: UIImageView!
     override func viewDidLoad() {
         mIvBg.image = UIImage(named:"background_frame")?.resizableImage(withCapInsets: UIEdgeInsets(top: 78, left: 92, bottom: 8, right: 70))
+        
+        mIvSave.image = UIImage(named:NSLocalizedString("SAVE", comment: ""))
+        
     }
     
     @IBAction func onBack(_ sender: Any) {
@@ -42,7 +46,6 @@ class DrawingViewController : UIViewController {
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
         
-        // 1
         UIGraphicsBeginImageContext(mIvDoubleBuffer.frame.size)
         let context = UIGraphicsGetCurrentContext()
         
@@ -52,20 +55,16 @@ class DrawingViewController : UIViewController {
             mIvDraw.image?.draw(in: CGRect(x: 0, y: 0, width: mIvDraw.frame.size.width, height: mIvDraw.frame.size.height))
         }
         
-        // 2
         context?.move(to: fromPoint)
         context?.addLine(to: toPoint)
         
-        // 3
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(mBrushWidth)
         context?.setStrokeColor(red: mRed, green: mGreen, blue: mBlue, alpha: 1.0)
         context?.setBlendMode(mEraseMode == false ? CGBlendMode.normal : CGBlendMode.clear)
         
-        // 4
         context?.strokePath()
         
-        // 5
         if mEraseMode == false {
             mIvDoubleBuffer.image = UIGraphicsGetImageFromCurrentImageContext()
             mIvDoubleBuffer.alpha = mOpacity
@@ -77,13 +76,10 @@ class DrawingViewController : UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 6
         mSwiped = true
         if let touch = touches.first {
             let currentPoint = touch.location(in: self.mIvDoubleBuffer)
             drawLineFrom(fromPoint: mLastPoint, toPoint: currentPoint)
-            
-            // 7
             mLastPoint = currentPoint
         }
     }
