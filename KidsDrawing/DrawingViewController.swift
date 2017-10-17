@@ -13,11 +13,17 @@ class DrawingViewController : UIViewController {
     @IBOutlet weak var mIvBg: UIImageView!
     @IBOutlet weak var mIvDoubleBuffer: UIImageView!
     @IBOutlet weak var mIvDraw: UIImageView!
+    @IBOutlet weak var mSliderThickness: DesignableSlider!
+    
     override func viewDidLoad() {
         mIvBg.image = UIImage(named:"background_frame")?.resizableImage(withCapInsets: UIEdgeInsets(top: 78, left: 92, bottom: 8, right: 70))
         
         mIvSave.image = UIImage(named:NSLocalizedString("SAVE", comment: ""))
         
+        mSliderThickness.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+        mSliderThickness.frame = CGRect(x: 0, y: mIvBg.frame.origin.y + 46, width: 46, height: mIvBg.frame.height - 95 - 46)
+        mSliderThickness.addBackgroundView()
+
     }
     
     @IBAction func onBack(_ sender: Any) {

@@ -232,10 +232,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QSt-jT-DJp">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="652"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49X-nD-vvG">
-                                <rect key="frame" x="132" y="64" width="50" height="48"/>
+                                <rect key="frame" x="132" y="84" width="50" height="48"/>
                                 <state key="normal" image="icn_exit_button"/>
                                 <state key="highlighted" image="icn_exit_button_click"/>
                                 <connections>
@@ -243,7 +243,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRP-TS-7dH">
-                                <rect key="frame" x="182" y="64" width="50" height="48"/>
+                                <rect key="frame" x="182" y="84" width="50" height="48"/>
                                 <state key="normal" image="icn_save_button"/>
                                 <state key="highlighted" image="icn_save_button_click"/>
                                 <connections>
@@ -251,19 +251,27 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDY-xF-mda">
-                                <rect key="frame" x="232" y="64" width="50" height="48"/>
+                                <rect key="frame" x="232" y="84" width="50" height="48"/>
                                 <state key="normal" image="icn_sound_button"/>
                                 <state key="highlighted" image="icn_sound_button_click"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baz-V4-J7A">
-                                <rect key="frame" x="0.0" y="144" width="414" height="588"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y2n-2Q-PVI">
-                                <rect key="frame" x="0.0" y="144" width="414" height="588"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="save_button_eng" translatesAutoresizingMaskIntoConstraints="NO" id="raw-5c-dfg">
-                                <rect key="frame" x="188" y="103" width="38" height="14"/>
+                                <rect key="frame" x="188" y="123" width="38" height="14"/>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kjy-rE-SEM" customClass="DesignableSlider" customModule="KidsDrawing" customModuleProvider="target">
+                                <rect key="frame" x="18" y="302" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="mImageThumb" value="icn_thickness_drawing"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="mImageBg" value="bar_thickness_drawing"/>
+                                </userDefinedRuntimeAttributes>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -294,6 +302,7 @@
                         <outlet property="mIvDoubleBuffer" destination="baz-V4-J7A" id="sND-tC-X02"/>
                         <outlet property="mIvDraw" destination="y2n-2Q-PVI" id="BfU-ro-2qq"/>
                         <outlet property="mIvSave" destination="raw-5c-dfg" id="E3e-hH-T8y"/>
+                        <outlet property="mSliderThickness" destination="Kjy-rE-SEM" id="9HR-r7-cyn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZM-dM-SEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -329,6 +338,7 @@
     <resources>
         <image name="background_drawing" width="360" height="551"/>
         <image name="background_menu_ver2" width="720" height="1130"/>
+        <image name="bar_thickness_drawing" width="363" height="44"/>
         <image name="frame_small" width="150" height="126"/>
         <image name="frame_small_click" width="150" height="126"/>
         <image name="icn_album_menu" width="199" height="183"/>
@@ -351,6 +361,7 @@
         <image name="icn_sound_button_click" width="50" height="48"/>
         <image name="icn_sticker_menu" width="164" height="133"/>
         <image name="icn_sticker_menu_click" width="164" height="133"/>
+        <image name="icn_thickness_drawing" width="55" height="44"/>
         <image name="new1" width="73" height="54"/>
         <image name="save_button_eng" width="38" height="14"/>
     </resources>
